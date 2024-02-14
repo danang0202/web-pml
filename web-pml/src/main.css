@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #00A3E1 !important;
+    /* Ganti dengan warna primer yang Anda inginkan */
+    --primary-rgb: 0, 163, 225 !important;
+    /* Ganti dengan warna primer yang Anda inginkan */
+    --primary-grey: #f7f7f8;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+    font-size: 99.5%;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.bg-semi-transparent {
+    background: rgba(255, 255, 255, 0.6) !important;
+}
+
+.bg-blue {
+    background: #00A3E1 !important;
+}
+
+.bg-blue-t {
+    background: rgba(0, 163, 225, 0.15) !important;
+}
+
+.bg-green {
+    background: #1AC073 !important;
+}
+
+.bg-purple {
+    background: #702F8A !important;
+}
+
+.bg-clear {
+    background: #fff;
+}
+
+.bg-orange {
+    background: #FA9370 !important;
+}
+
+.bg-secondary-admin {
+    background: #eee;
+}
+
+.bg-primary-grey {
+    background: var(--primary-grey) !important;
+}
+
+.bg-green-t {
+    background: rgba(26, 192, 115, 0.15) !important;
+}
+
+.bg-green-notif {
+    background: rgba(26, 192, 115, 0.3) !important;
+}
+
+
+.bg-danger-t {
+    background: rgba(242, 5, 5, 0.15) !important;
+}
+
+.bg-danger-notif {
+    background: rgba(242, 5, 5, 0.3) !important;
+}
+
+
+.bg-orange-t {
+    background: rgba(2550, 147, 112, 0.15) !important;
+}
+
+.bg-purple-t {
+    background: rgba(112, 47, 138, 0.15) !important;
+}
+
+.text-blue {
+    color: #00A3E1 !important;
+}
+
+.text-purple {
+    color: #702F8A !important;
+}
+
+.text-orange {
+    color: #FA9370 !important;
+}
+
+.text-green {
+    color: #1AC073 !important;
+}
+
+.fs-7 {
+    font-size: 0.7rem !important;
+}
+
+.fs-8 {
+    font-size: .8rem !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fromRight {
+    from {
+        right: -100%;
+    }
+
+    to {
+        right: 0rem;
+    }
+}
+
+.from-right {
+    animation: fromRight 0.5s ease-in-out;
+}
+
+.smooth-transition {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.hover-op1:hover {
+    background-color: #00A3E1 !important;
+    color: #fff !important;
+}
+
+.hover-op1:hover i{
+    color:  #fff !important;
+}
+
+.hover-blue:hover {
+    color: #00A3E1 !important;
+}
+
+.hover-bg-blue:hover{
+    background: #00A3E1 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+.hover-bg-danger:hover{
+    background: rgba(242, 5, 5) !important;
+    color: #fff !important;
+    cursor: pointer;
+
+}
+
+.hover-bg-orange:hover {
+    background: #FA9370 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+.hover-bg-green:hover {
+    background: #1AC073 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+
+.hover-op6:hover {
+    opacity: .6;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.btn-outline-warning {
+    background: #FFF !important;
+    color: #FA9370 !important;
+    border: 1px solid #FA9370 !important;
+}
+
+.btn-outline-warning:hover,
+.btn-outline-warning:hover i {
+    background: #FA9370 !important;
+    outline: #FA9370 !important;
+    color: black !important;
+}
+
+.btn-primary {
+    background: #00A3E1 !important;
+}
+
+.btn-primary:hover {
+    opacity: 0.8 !important;
+}
+
+.btn-warning {
+    background: #FA9370 !important;
+}
+
+.btn-warning:hover {
+    opacity: 0.8 !important;
+}
+
+.text-bg-primary {
+    background: #00A3E1 !important;
+}
