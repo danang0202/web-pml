@@ -6,58 +6,75 @@ import NotifCenter from "../components/NotifCenter";
 import apiCentral from "../config/axiosCentral";
 
 function Login() {
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const [loading, setLoading] = useState();
-    const [notifLogin, setNotifLogin] = useState();
-    const navigate = useNavigate();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [loading, setLoading] = useState();
+  const [notifLogin, setNotifLogin] = useState();
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        const data = {
-            email,
-            password,
-        };
-        try {
-            const response = await apiCentral.post('/v1/sessions', data, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-            if (response.status == 200) {
-                const responseData = await response.data;
-                Cookies.set('token', responseData.token, { expires: 1 });
-                Cookies.set('csrf', responseData.csrf, { expires: 1 });
-                Cookies.set('email', email, { expires: 1 });
-                sessionStorage.setItem('notif-login', 'success');
-                navigate('/');
-            }
-        } catch (error) {
-            setNotifLogin('false');
-        } finally {
-            setTimeout(() => {
-                setNotifLogin('');
-            }, 500);
-            setLoading(false);
-        }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const data = {
+      email,
+      password,
     };
+    try {
+      const response = await apiCentral.post("/v1/sessions", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.status == 200) {
+        const responseData = await response.data;
+        Cookies.set("token", responseData.token, { expires: 1 });
+        Cookies.set("csrf", responseData.csrf, { expires: 1 });
+        sessionStorage.setItem("notif-login", "success");
+        navigate("/");
+      }
+    } catch (error) {
+      setNotifLogin("false");
+    } finally {
+      setTimeout(() => {
+        setNotifLogin("");
+      }, 500);
+      setLoading(false);
+    }
+  };
 
-    return (
-        <>
-            {notifLogin && notifLogin == 'false' && (
-                <NotifCenter icon={'error'} text={'Login gagal'} />
-            )}
-            <div className="container d-flex justify-content-center d-flex align-items-center">
-                <div className=''>
-                    <div className="container-fluid d-flex justify-content-center">
-                        <div className='d-flex flex-row col-lg-7 col-12 shadow-lg'>
-                            <div className="form-container bg-clear col-lg-8 col-md-8 col-12 p-lg-5 p-3 py-5">
-                                <div className="logo-container mb-2 d-flex align-items-center flex-column gap-4 text-purple">
-                                    <img src="/images/metalab-logo.png" alt="Fail image ..." style={{ width: '10rem' }} />
-                                    <p>Silahkan login dengan akun PML !</p>
-                                </div>
-                                {/* {notif == 'success' && (
+  return (
+    <>
+      {notifLogin && notifLogin == "false" && (
+        <NotifCenter icon={"error"} text={"Login gagal"} />
+      )}
+      <div className="container d-flex justify-content-center align-items-center min-h-100">
+        <div className="">
+          <div className="container-fluid d-flex justify-content-center align-items-center">
+            <div className="d-flex flex-row shadow-lg rounded-4 justify-content-center">
+              <div className="form-container bg-clear p-lg-5 py-5 p-4 rounded-4">
+                <div className="logo-container mb-2 d-flex align-items-center flex-column gap-4 text-purple">
+                  <div className="d-flex align-items-center justify-content-center gap-4">
+                    <img
+                      src="images/login/ketupat.svg"
+                      alt="ketupat"
+                      className="rotate-90 w-18"
+                    />
+                    <img
+                      src="images/login/orang.svg"
+                      alt="Maskot"
+                      className="w-45"
+                    />
+                    <img
+                      src="images/login/ketupat.svg"
+                      alt="ketupat"
+                      className="w-18"
+                    />
+                  </div>
+                  <h1 className="poppins fs-2 text-center fw-bold text-blue-1">
+                    Silahkan login dengan akun PML !
+                  </h1>
+                </div>
+                {/* {notif == 'success' && (
                                     <div className="smooth-transition alert alert-success d-flex align-items-center gap-3 my-2" role="alert">
                                         <i className="fa-solid fa-circle-check"></i>
                                         <div>
