@@ -81,36 +81,75 @@ function Login() {
                                         </div>
                                     </div>
                                 )} */}
-                                <form onSubmit={handleSubmit} >
-                                    <div className="mb-3">
-                                        <input type="email" name='email' className="form-control" aria-label='Email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
-                                    </div>
-                                    <div className="mb-3">
-                                        <input type="password" name='password' className="form-control" aria-label='password' placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
-                                    </div>
-                                    <button type="submit" className="btn btn-warning w-100 fw-bold mt-3 text-light">Login</button>
-                                </form>
-                            </div>
-                            <div className="box-container bg-blue d-flex flex-column w-100 pt-5 gap-3">
-                                <div className="d-none d-md-block h-100">
-                                    <div className="img-container d-flex flex-row gap-4 justify-content-center px-4">
-                                        <img src="/images/metalab-logo-clear.png" className='' alt="..." style={{ width: '10rem' }} />
-                                    </div>
-                                    <div className='d-flex flex-column align-items-center text-light h-100 w-100'>
-                                        <img src="/images/login-component.png" alt="" style={{ width: '100%', height: '100%' }} />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                
+                <form onSubmit={handleSubmit} className="form-floating">
+                <div className="form-floating mb-3 mx-sm-5">
+                    <input 
+                      type="email" 
+                      id="email"
+                      name="email"
+                      className="form-control poppins border-blue-1"
+                      aria-label="Email"
+                      placeholder="Email"
+                      onChange={(e) => setEmail(e.target.value)}/>
+                    <label htmlFor="email">Email</label>
+                  </div>
+                  <div className="form-floating mx-sm-5">
+                    <input                  
+                      type="password"
+                      id="password"
+                      name="password"
+                      className="form-control poppins border-blue-1"
+                      aria-label="password"
+                      placeholder="Password"
+                      onChange={(e) => setPassword(e.target.value)}
+                      />
+                      
+                    <label htmlFor="password">Password</label>
+                  </div>
+                  {/* <div className="mb-3 mx-sm-5 form-floating">
+                    <label htmlFor="email" className="poppins text-blue-1">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      className="form-control poppins border-blue-1"
+                      aria-label="Email"
+                      placeholder="Email"
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3 mx-sm-5">
+                    <label htmlFor="password" className="poppins text-blue-1">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      className="form-control poppins border-blue-1"
+                      aria-label="password"
+                      placeholder="Password"
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div> */}
+                  <button
+                    type="submit"
+                    className="btn bg-grad-1 w-max fw-bold mt-3 text-light mx-auto d-block px-5"
+                  >
+                    Login
+                  </button>
+                </form>
+              </div>
             </div>
-            {loading && (
-                <Loading />
-            )}
-        </>
-    )
+          </div>
+        </div>
+      </div>
+      {loading && <Loading />}
+    </>
+  );
 }
 
 export default Login;
