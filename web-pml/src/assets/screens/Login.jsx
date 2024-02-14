@@ -1,10 +1,9 @@
-import { useState } from "react"
-import Cookies from 'js-cookie';
+import { useState } from "react";
+import Cookies from "js-cookie";
 import Loading from "../components/Loading";
 import { useNavigate } from "react-router-dom";
 import NotifCenter from "../components/NotifCenter";
 import apiCentral from "../config/axiosCentral";
-
 
 function Login() {
     const [email, setEmail] = useState();
@@ -114,4 +113,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Login;
