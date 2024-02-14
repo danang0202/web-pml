@@ -30,6 +30,7 @@ function Login() {
                 const responseData = await response.data;
                 Cookies.set('token', responseData.token, { expires: 1 });
                 Cookies.set('csrf', responseData.csrf, { expires: 1 });
+                Cookies.set('email', email, { expires: 1 });
                 sessionStorage.setItem('notif-login', 'success');
                 navigate('/');
             }
