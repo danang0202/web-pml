@@ -98,8 +98,33 @@ function Login() {
                                         </div>
                                     </div>
                                 )} */}
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-3 mx-sm-5">
+                
+                <form onSubmit={handleSubmit} className="form-floating">
+                <div className="form-floating mb-3 mx-sm-5">
+                    <input 
+                      type="email" 
+                      id="email"
+                      name="email"
+                      className="form-control poppins border-blue-1"
+                      aria-label="Email"
+                      placeholder="Email"
+                      onChange={(e) => setEmail(e.target.value)}/>
+                    <label htmlFor="email">Email</label>
+                  </div>
+                  <div className="form-floating mx-sm-5">
+                    <input                  
+                      type="password"
+                      id="password"
+                      name="password"
+                      className="form-control poppins border-blue-1"
+                      aria-label="password"
+                      placeholder="Password"
+                      onChange={(e) => setPassword(e.target.value)}
+                      />
+                      
+                    <label htmlFor="password">Password</label>
+                  </div>
+                  {/* <div className="mb-3 mx-sm-5 form-floating">
                     <label htmlFor="email" className="poppins text-blue-1">
                       Email
                     </label>
@@ -126,7 +151,7 @@ function Login() {
                       placeholder="Password"
                       onChange={(e) => setPassword(e.target.value)}
                     />
-                  </div>
+                  </div> */}
                   <button
                     type="submit"
                     className="btn bg-grad-1 w-max fw-bold mt-3 text-light mx-auto d-block px-5"
