@@ -6,6 +6,7 @@ import Dashboard from './assets/screens/Dashboard'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { TimProvider } from './context/TimContext'
 import Team from './assets/screens/Team'
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 function App() {
 

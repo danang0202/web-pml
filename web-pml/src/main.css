@@ -22,11 +22,11 @@
 }
 
 .bg-blue {
-    background: #00A3E1 !important;
+    background: #03396c !important;
 }
 
 .bg-blue-t {
-    background: rgba(0, 163, 225, 0.15) !important;
+    background: rgba(3, 57, 108, 0.15) !important;
 }
 
 .bg-green {
@@ -42,7 +42,7 @@
 }
 
 .bg-orange {
-    background: #FA9370 !important;
+    background: #f5b020 !important;
 }
 
 .bg-secondary-admin {
@@ -72,7 +72,7 @@
 
 
 .bg-orange-t {
-    background: rgba(2550, 147, 112, 0.15) !important;
+    background: rgba(245, 176, 32, 0.15) !important;
 }
 
 .bg-purple-t {
@@ -80,7 +80,7 @@
 }
 
 .text-blue {
-    color: #00A3E1 !important;
+    color: #03396c !important;
 }
 
 .text-purple {
@@ -88,11 +88,19 @@
 }
 
 .text-orange {
-    color: #FA9370 !important;
+    color: #f5b020 !important;
 }
 
 .text-green {
     color: #1AC073 !important;
+}
+
+.bg-orange-red-t{
+    background: rgba(236, 43, 38, .15);
+}
+
+.text-orange-red{
+    color: #d93f57;
 }
 
 .fs-7 {

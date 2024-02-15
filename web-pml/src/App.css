@@ -8,29 +8,29 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+
 .rotate-90 {
   transform: rotate(90deg);
 }
+
 .w-18 {
   width: 18%;
 }
+
 .w-45 {
   width: 45%;
 }
+
 .min-h-100 {
   min-height: 100vh;
-}
-
-.poppins {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
 }
 
 .text-blue-1 {
@@ -41,14 +41,43 @@
   border-color: #011f4b;
 }
 
-.bg-grad-1 {
-  background-image: linear-gradient(to right, #011f4b 0%, white 100%);
+
+
+.bg-grad-2 {
+  background-image: linear-gradient(to bottom right, #03396C 30%, #6497b1 90%);
 }
+
+.bg-grad-3 {
+  background-image: linear-gradient(to right, #fbac1b 25%, #f58020 80%);
+}
+
+.transition-colors {
+  transition: background-color 0.3s ease;
+}
+
+.bg-grad-1 {
+  background-image: linear-gradient(to right, #011f4b 30%, #6497B1 100%);
+  transition: background-image 0.6s ease;
+}
+
+.hover-grad-1:hover {
+  opacity: .8;
+  background-image: linear-gradient(to right, #6497B1 0%, #011f4b 60%);
+  cursor: pointer;
+}
+
+.bg-grad-3:hover {
+  opacity: .8;
+  background-image: linear-gradient(to right, #f58020 25%, #fbac1b 80%);
+  cursor: pointer;
+}
+
 
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -66,4 +95,16 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.card-box {
+  transform: translateY(140%);
+}
+
+.border-blue {
+  border: .1rem solid #03396C;
+}
+
+.active {
+  font-weight: bolder;
 }

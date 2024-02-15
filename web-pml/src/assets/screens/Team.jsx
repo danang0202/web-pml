@@ -3,16 +3,16 @@ import { useTimContext } from '../../context/TimContext';
 import { useEffect } from 'react';
 
 function Team() {
-    const { dataTim } = useTimContext();
+    const { dataTim, submissionsList, wilayahKerja } = useTimContext();
 
 
-    useEffect(()=>{
-        console.log(dataTim);
-    },[dataTim])
+    useEffect(() => {
+        console.log(wilayahKerja);
+    }, [dataTim])
 
     return (
         <>
-           
+
         </>
     )
 }
