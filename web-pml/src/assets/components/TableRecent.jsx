@@ -10,11 +10,12 @@ function TableRecent() {
     const token = Cookies.get('token');
     const { submissionListTim, dataTim } = useTimContext();
     // const [loading, setLoading] = useState();
-    const [url] = useState('https://central.pkl63.stis.ac.id/v1/projects/1/forms/MODUL2/submissions/uuid:7113273a-7d10-404a-a1e2-2746eb853243/edit');
 
-    const handleLinkClick = (event) => {
+    const handleLinkClick = (item) => {
         event.preventDefault();
-        window.location.href = url;
+        // let url = (`https://central.pkl63.stis.ac.id/-/edit/OGnOJdHta8UsUQ3JTo10xPCq9f3BhYr?instance_id=uuid:7113273a-7d10-404a-a1e2-2746eb853243&return_url=`);
+        let url = (`https://central.pkl63.stis.ac.id/v1/projects/1/forms/MODUL2/submissions/uuid:7113273a-7d10-404a-a1e2-2746eb853243/edit`);
+        window.open(url, '_blank');
     }
 
     return (
@@ -49,7 +50,7 @@ function TableRecent() {
                                 </td>
                                 <td>
                                     <div className='d-flex justify-content-center' >
-                                        <div className="rounded bg-grad-2 text-light px-2 py-1 hover-grad-1 transition-colors d-flex flex-row gap-1 align-items-center" onClick={(e)=>handleLinkClick(e)}>
+                                        <div className="rounded bg-grad-2 text-light px-2 py-1 hover-grad-1 transition-colors d-flex flex-row gap-1 align-items-center" onClick={() => handleLinkClick(item)}>
                                             <p className="mb-0 fs-7 fw-semibold">Lihat</p>
                                             <FontAwesomeIcon icon={faEye} style={{ color: '#fff' }} />
                                         </div>

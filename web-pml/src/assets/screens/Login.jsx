@@ -35,9 +35,9 @@ function Login() {
                 const responseData = await response.data;
                 console.log(response);
                 Cookies.set("token", responseData.token, { expires: 1 });
-                Cookies.set("__Host-session", responseData.token, { expires: 1 });
+                Cookies.set("__Host-session", responseData.token, { expires: 1, secure: true, sameSite: 'strict' });
                 Cookies.set("__csrf", responseData.csrf, { expires: 1 });
-                localStorage.setItem('sessionExpires',responseData.expiresAt)
+                localStorage.setItem('sessionExpires', responseData.expiresAt)
                 Cookies.set("csrf", responseData.csrf, { expires: 1 });
                 setLoginResponse(responseData);
             }

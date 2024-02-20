@@ -12,7 +12,6 @@ function Navbar() {
         const handleScroll = () => {
             const scrollY = window.scrollY;
 
-            // Ganti warna navbar saat discroll
             if (scrollY > 100) {
                 setNavbarColor('bg-clear');
                 setFontColor('text-dark');
@@ -30,7 +29,7 @@ function Navbar() {
 
     return (
         <>
-            <nav className={`navbar navbar-expand-lg ${location.pathname == ('/') ? navbarColor :  'bg-clear' } w-100  px-5 transition-colors`} style={{ height: '4rem' }}>
+            <nav className={`navbar navbar-expand-lg ${location.pathname == ('/') ? navbarColor :  'bg-clear' } w-100  px-5 transition-colors shadow-sm`} style={{ height: '4rem' }}>
                 <div className="container-fluid">
                     <div className="logo-container text-end px-5 mb-1">
                         <img src="/images/logo/Logo Full.svg" alt="" style={{ width: '3.5rem' }} />
