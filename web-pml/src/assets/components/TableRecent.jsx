@@ -13,8 +13,8 @@ function TableRecent() {
 
     const handleLinkClick = (item) => {
         event.preventDefault();
-        let url = (`https://central.pkl63.stis.ac.id/-/edit/OGnOJdHta8UsUQ3JTo10xPCq9f3BhYr?instance_id=${item.instanceId}&return_url=`);
-        // let url = (`https://central.pkl63.stis.ac.id/v1/projects/1/forms/MODUL2/submissions/uuid:7113273a-7d10-404a-a1e2-2746eb853243/edit`);
+        // let url = (`https://central.pkl63.stis.ac.id/-/edit/OGnOJdHta8UsUQ3JTo10xPCq9f3BhYr?instance_id=${item.instanceId}&return_url=`);
+        let url = (`https://central.pkl63.stis.ac.id/v1/projects/1/forms/MODUL2/submissions/${item.instanceId}/edit`);
         window.open(url, '_blank');
     }
 
