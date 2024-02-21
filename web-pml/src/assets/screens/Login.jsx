@@ -134,7 +134,7 @@ function Login() {
                 if (response.status == 200) {
                     updateDataWilayahKerjaTim(response.data);
                     sessionStorage.setItem("notif-login", "success");
-                    // navigate("/");
+                    navigate("/");
                 }
             } catch (error) {
                 console.log("Terdapat masalah pada get wilayah kerja tim");
