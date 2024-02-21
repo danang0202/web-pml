@@ -8,15 +8,14 @@ import { formatDateAndTime } from "../config/kumpulanFunction";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
 import TableRecent from "../components/TableRecent";
+import { useParams } from "react-router-dom";
 
 
 function Dashboard() {
     const [notifLogin, setNotifLogin] = useState();
-    // const email = Cookies.get('email');
     const token = Cookies.get('token');
     const { dataTim, wilayahKerja, updateDataSubmissions, getSubmissions, setGetSubmission } = useTimContext();
     const [loading, setLoading] = useState();
-
 
     useEffect(() => {
         if (sessionStorage.getItem('notif-login')) {

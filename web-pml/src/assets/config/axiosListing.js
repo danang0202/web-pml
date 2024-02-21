@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://2781-111-94-54-138.ngrok-free.app/';
+const baseURL = 'https://capi.pkl63.stis.ac.id/';
 
 const apiListing = axios.create({
     baseURL

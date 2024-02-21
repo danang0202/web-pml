@@ -7,45 +7,62 @@ import apiCentral from "../config/axiosCentral";
 import apiListing from "../config/axiosListing";
 import apiCentralProject from "../config/axiosCentralProject";
 import { useTimContext } from "../../context/TimContext";
+import { useParams } from "react-router-dom";
 
 function Login() {
+    const { ref, tag } = useParams();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [loading, setLoading] = useState();
     const [notifLogin, setNotifLogin] = useState();
-    const [loginResponse, setLoginResponse] = useState();
+    const [token, setToken] = useState();
     const navigate = useNavigate();
     const [tim, setTim] = useState();
     const { dataTim, updateDataTim, updateDataWilayahKerjaTim } = useTimContext();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    useEffect(() => {
         setLoading(true);
-        const data = {
-            email,
-            password,
-        };
-        try {
-            const response = await apiCentral.post("/v1/sessions", data, {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            if (response.status == 200) {
-                const responseData = await response.data;
-                console.log(response);
-                Cookies.set("token", responseData.token, { expires: 1 });
-                Cookies.set("__Host-session", responseData.token, { expires: 1, secure: true, sameSite: 'strict' });
-                Cookies.set("__csrf", responseData.csrf, { expires: 1 });
-                localStorage.setItem('sessionExpires', responseData.expiresAt)
-                Cookies.set("csrf", responseData.csrf, { expires: 1 });
-                setLoginResponse(responseData);
-            }
-        } catch (error) {
-            setNotifLogin("false");
-            setLoading(false);
-        }
-    };
+        Cookies.set("token", ref, { expires: 1 });
+        Cookies.set("email", tag, { expires: 1 });
+        setToken(ref);
+        setEmail(tag);
+        // localStorage.setItem('sessionExpires', responseData.expiresAt)
+    }, [])
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setLoading(true);
+    //     const data = {
+    //         email,
+    //         password,
+    //     };
+    //     try {
+    //         const response = await apiCentral.post("/v1/sessions", data, {
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //         });
+    //         if (response.status == 200) {
+    //             const responseData = await response.data;
+    //             console.log(response);
+    //             Cookies.set("token", responseData.token, { expires: 1 });
+    //             Cookies.set("__Host-session", responseData.token, { expires: 1, secure: true, sameSite: 'strict' });
+    //             Cookies.set("__csrf", responseData.csrf, { expires: 1 });
+    //             localStorage.setItem('sessionExpires', responseData.expiresAt)
+    //             Cookies.set("csrf", responseData.csrf, { expires: 1 });
+    //             setLoginResponse(responseData);
+    //             // Cookies.set("__Host-session", "NilaiToken", {
+    //             //     expires: 1, // Cookie berakhir dalam 1 hari
+    //             //     secure: true, // Hanya akan dikirimkan melalui HTTPS
+    //             //     sameSite: "strict", // Hanya akan dikirimkan dalam permintaan yang sama dengan domain yang ditetapkan
+    //             //     path: "/", // Berlaku untuk semua path dalam subdomain "central.pkl.stis.ac.id"
+    //             //   });
+    //         }
+    //     } catch (error) {
+    //         setNotifLogin("false");
+    //         setLoading(false);
+    //     }
+    // };
 
     useEffect(() => {
         const fetchDataTim = async () => {
@@ -61,10 +78,10 @@ function Login() {
                 console.log("Terdapat error di halaman dashboard");
             }
         }
-        if (loginResponse) {
+        if (token && email) {
             fetchDataTim();
         }
-    }, [loginResponse])
+    }, [email, token])
 
     const getIdAkun = (anggotaTim, user) => {
         const akun = user.find(akun => akun.displayName == anggotaTim.nim);
@@ -88,7 +105,7 @@ function Login() {
             try {
                 const response = await apiCentralProject.get('app-users', {
                     headers: {
-                        'Authorization': `Bearer ${loginResponse.token}`
+                        'Authorization': `Bearer ${token}`
                     }
                 })
                 if (response.status == 200) {
@@ -99,8 +116,7 @@ function Login() {
                 console.log("Terdapat error di halaman dashboard 2");
             }
         }
-
-        if (tim && loginResponse.token) {
+        if (tim && token) {
             fetchAllAkunProjectCentral();
         }
     }, [tim])
@@ -118,7 +134,7 @@ function Login() {
                 if (response.status == 200) {
                     updateDataWilayahKerjaTim(response.data);
                     sessionStorage.setItem("notif-login", "success");
-                    navigate("/");
+                    // navigate("/");
                 }
             } catch (error) {
                 console.log("Terdapat masalah pada get wilayah kerja tim");
@@ -166,7 +182,7 @@ function Login() {
                                         Silahkan login dengan akun PML !
                                     </h1>
                                 </div>
-                                <form onSubmit={handleSubmit} className="form-floating">
+                                <form className="form-floating">
                                     <div className="form-floating mb-3 mx-sm-5">
                                         <input
                                             type="email"

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://central.pkl63.stis.ac.id'; 
+const baseURL = 'http://localhost:8989'; 
 
 const apiCentral = axios.create({
   baseURL

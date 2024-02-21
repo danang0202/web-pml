@@ -15,9 +15,9 @@ function App() {
       <TimProvider>
         <BrowserRouter>
           <Routes>
-            <Route path='/login' element={<Login />} />
+            <Route path='/login/:ref/:tag' element={<Login />} />
             <Route path="/" element={<Layout />}>
-              <Route index element={<Dashboard />} />
+              <Route path="/" element={<Dashboard />} />
               <Route path="/team" element={<Team />} />
             </Route>
           </Routes>

@@ -7,7 +7,7 @@ function Card() {
     const { submissionListTim } = useTimContext();
     return (
         <>
-            <div className="card-container w-100 d-flex flex-column gap-4  bg-grad-2 position-relative" style={{ height: '22rem', backgroundImage: 'url("images/bg-web.png")', backgroundSize:'cover' }}>
+            <div className="card-container w-100 d-flex flex-column gap-4  bg-grad-2 position-relative" style={{ height: '22rem', backgroundImage: 'url("/images/bg-web.png")', backgroundSize:'cover' }}>
                 <div className="title d-flex flex-row justify-content-center align-items-center pb-4 pt-4">
                     <img src="/images/logo/maskot-full.png" alt="" style={{ width: '10rem' }} />
                     <div className="d-flex flex-column">
