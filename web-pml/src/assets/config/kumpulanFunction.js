@@ -73,3 +73,17 @@ export function getNamaPengirim(submitterId, dataTim) {
         return "";
     }
 }
+
+
+export function updateStatusSubmisionMetaData(data, updatedData) {
+    const newData = data.map(item => {
+        if (item.instanceId === updatedData.instanceId) {
+            return {
+                ...item,
+                reviewState: updatedData.reviewState
+            };
+        }
+        return item;
+    });
+    return newData;
+}

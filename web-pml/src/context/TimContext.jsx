@@ -48,11 +48,13 @@ export const TimProvider = ({ children }) => {
         }
     }
 
-    const updateDataSubmissions = async (data) => {
+    const updateDataSubmissions = async (data, refresh) => {
         try {
             const now = new Date();
             localStorage.setItem('submissions', JSON.stringify(data));
-            localStorage.setItem('lastUpdate', now);
+            if (refresh) {
+                localStorage.setItem('lastUpdate', now);
+            }
             setSubmissionList(data);
         } catch (error) {
             console.error('Gagal mengupdate data submissions');

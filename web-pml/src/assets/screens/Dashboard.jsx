@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
 import TableRecent from "../components/TableRecent";
 import { useParams } from "react-router-dom";
+import Loading from "../components/Loading";
 
 
 function Dashboard() {
@@ -30,6 +31,7 @@ function Dashboard() {
     useEffect(() => {
         const fetchDataSubmissions = async () => {
             setLoading(true);
+            let token = "kYm34RQbsuUPMEmE0XC0JWYkb1CdkAOfr2!!SVK!qX4QnrFQ1xUbVFZcKvC1$Bms";
             try {
                 const response = await apiCentralProject.get('forms/MODUL2/submissions', {
                     headers: {
@@ -37,7 +39,7 @@ function Dashboard() {
                     }
                 })
                 if (response.status == 200) {
-                    updateDataSubmissions(response.data);
+                    updateDataSubmissions(response.data,true);
                 }
             } catch (error) {
                 console.log("Error saat melakukan fetch data submissions");
@@ -85,10 +87,11 @@ function Dashboard() {
 
                 <div className="container table-container px-5">
                     <div className="bg-clear rounded-3 p-4">
-                        <TableRecent />
+                        <TableRecent setLoading={setLoading} />
                     </div>
                 </div>
             </div>
+            {loading && <Loading />}
         </>
     )
 }
