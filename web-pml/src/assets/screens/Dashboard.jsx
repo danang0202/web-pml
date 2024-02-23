@@ -31,7 +31,6 @@ function Dashboard() {
     useEffect(() => {
         const fetchDataSubmissions = async () => {
             setLoading(true);
-            let token = "kYm34RQbsuUPMEmE0XC0JWYkb1CdkAOfr2!!SVK!qX4QnrFQ1xUbVFZcKvC1$Bms";
             try {
                 const response = await apiCentralProject.get('forms/MODUL2/submissions', {
                     headers: {
