@@ -18,6 +18,7 @@ function App() {
             <Route path='/login/:ref/:tag/:expiresAt' element={<Login />} />
             <Route path="/" element={<Layout />}>
               <Route path="/" element={<Dashboard />} />
+              <Route path="/submissions" element={<Team />} />
               <Route path="/team" element={<Team />} />
             </Route>
           </Routes>

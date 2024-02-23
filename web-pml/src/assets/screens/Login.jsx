@@ -3,7 +3,6 @@ import Cookies from "js-cookie";
 import Loading from "../components/Loading";
 import { useNavigate } from "react-router-dom";
 import NotifCenter from "../components/NotifCenter";
-import apiCentral from "../config/axiosCentral";
 import apiListing from "../config/axiosListing";
 import apiCentralProject from "../config/axiosCentralProject";
 import { useTimContext } from "../../context/TimContext";
@@ -12,13 +11,13 @@ import { useParams } from "react-router-dom";
 function Login() {
     const { ref, tag, expiresAt } = useParams();
     const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    // const [password, setPassword] = useState();
     const [loading, setLoading] = useState();
     const [notifLogin, setNotifLogin] = useState();
     const [token, setToken] = useState();
     const navigate = useNavigate();
     const [tim, setTim] = useState();
-    const { dataTim, updateDataTim, updateDataWilayahKerjaTim } = useTimContext();
+    const { updateDataTim, updateDataWilayahKerjaTim } = useTimContext();
 
     useEffect(() => {
         setLoading(true);
@@ -155,7 +154,7 @@ function Login() {
             {notifLogin && notifLogin == "false" && (
                 <NotifCenter icon={"error"} text={"Login gagal"} />
             )}
-            <div className="container d-flex justify-content-center align-items-center min-h-100">
+            {/* <div className="container d-flex justify-content-center align-items-center min-h-100">
                 <div className="">
                     <div className="container-fluid d-flex justify-content-center align-items-center">
                         <div className="d-flex flex-row shadow-lg rounded-4 justify-content-center">
@@ -218,7 +217,7 @@ function Login() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             {loading && <Loading />}
         </>
     );

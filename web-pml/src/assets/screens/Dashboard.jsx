@@ -8,14 +8,14 @@ import { formatDateAndTime } from "../config/kumpulanFunction";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
 import TableRecent from "../components/TableRecent";
-import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
+import { xmlFormId } from "../config/util";
 
 
 function Dashboard() {
     const [notifLogin, setNotifLogin] = useState();
     const token = Cookies.get('token');
-    const { dataTim, wilayahKerja, updateDataSubmissions, getSubmissions, setGetSubmission } = useTimContext();
+    const { updateDataSubmissions, getSubmissions, setGetSubmission } = useTimContext();
     const [loading, setLoading] = useState();
 
     useEffect(() => {
@@ -32,13 +32,13 @@ function Dashboard() {
         const fetchDataSubmissions = async () => {
             setLoading(true);
             try {
-                const response = await apiCentralProject.get('forms/MODUL2/submissions', {
+                const response = await apiCentralProject.get(`forms/${xmlFormId}/submissions`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 })
                 if (response.status == 200) {
-                    updateDataSubmissions(response.data,true);
+                    updateDataSubmissions(response.data, true);
                 }
             } catch (error) {
                 console.log("Error saat melakukan fetch data submissions");

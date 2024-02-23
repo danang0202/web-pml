@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { urlCentral } from "../config/util";
 
 function Navbar() {
 
@@ -29,7 +30,7 @@ function Navbar() {
     }, []);
 
     const logout = () => {
-        window.open('https://central.pkl63.stis.ac.id/#/logout',);
+        window.open(`${urlCentral}/logout`);
     }
 
     return (
