@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { urlCentral } from "../config/util";
+import Cookies from "js-cookie";
 
 function Navbar() {
 
@@ -30,6 +31,9 @@ function Navbar() {
     }, []);
 
     const logout = () => {
+        Cookies.remove('token');
+        Cookies.remove('email');
+        localStorage.removeItem('expiresAt')
         window.open(`${urlCentral}/logout`);
     }
 
