@@ -8,13 +8,9 @@ function Layout() {
 
     useEffect(() => {
         if (!Cookies.get("token") || !Cookies.get("email")) {
-            goToLogoutCentral();
+            window.location.href = `${urlCentral}/logout`;
         }
     }, [])
-
-    const goToLogoutCentral = () => {
-        window.open(`${urlCentral}/logout`);
-    }
 
 
     return (

@@ -34,7 +34,8 @@ function Navbar() {
         Cookies.remove('token');
         Cookies.remove('email');
         localStorage.removeItem('expiresAt')
-        window.open(`${urlCentral}/logout`);
+        window.open(`${urlCentral}/logout`, 'blank');
+        // window.location.href = `${urlCentral}/logout`;
     }
 
     return (
