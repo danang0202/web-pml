@@ -66,7 +66,7 @@ export function konversiFormatWaktu(waktuISO) {
 }
 
 export function getNamaPengirim(submitterId, dataTim) {
-    const hasil = dataTim.find((item) => item.akunId == 151);
+    const hasil = dataTim.find((item) => item.akunId == 151); // BAGIAIN INI NANTI DI BENARKAN KONDISINYA
     if (hasil) {
         return hasil;
     } else {

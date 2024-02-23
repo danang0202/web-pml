@@ -10,7 +10,7 @@ import { useTimContext } from "../../context/TimContext";
 import { useParams } from "react-router-dom";
 
 function Login() {
-    const { ref, tag } = useParams();
+    const { ref, tag, expiresAt } = useParams();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [loading, setLoading] = useState();
@@ -26,7 +26,7 @@ function Login() {
         Cookies.set("email", tag, { expires: 1 });
         setToken(ref);
         setEmail(tag);
-        // localStorage.setItem('sessionExpires', responseData.expiresAt)
+        localStorage.setItem('expiresAt', expiresAt)
     }, [])
 
     // const handleSubmit = async (e) => {

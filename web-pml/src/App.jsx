@@ -15,7 +15,7 @@ function App() {
       <TimProvider>
         <BrowserRouter>
           <Routes>
-            <Route path='/login/:ref/:tag' element={<Login />} />
+            <Route path='/login/:ref/:tag:/expiresAt' element={<Login />} />
             <Route path="/" element={<Layout />}>
               <Route path="/" element={<Dashboard />} />
               <Route path="/team" element={<Team />} />

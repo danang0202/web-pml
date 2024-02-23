@@ -3,7 +3,7 @@ export
     const hasil = [];
     if (dataTim && submissions) {
         dataTim.map((anggota) => {
-            const submissionTemp = submissions.filter(data => data.submitterId == 7)
+            const submissionTemp = submissions.filter(data => data.submitterId == 7) // BAGIAN INI DIBENARKAN KONDISINYA
             if (submissionTemp.length > 0) {
                 hasil.push(...submissionTemp);
             }
