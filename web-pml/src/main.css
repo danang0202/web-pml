@@ -216,3 +216,16 @@
 .text-bg-primary {
     background: #00A3E1 !important;
 }
+
+.form-check-input:checked{
+    background-color: #f5b020 !important;
+    border-color: #f5b020 !important;
+}
+
+table tbody tr td{
+    padding: .7rem 0rem !important;
+}
+
+input{
+    cursor: pointer;
+}

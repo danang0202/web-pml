@@ -33,7 +33,8 @@ function Navbar() {
     const logout = () => {
         Cookies.remove('token');
         Cookies.remove('email');
-        localStorage.removeItem('expiresAt')
+        // localStorage.removeItem('expiresAt')
+        localStorage.clear(); // menghapus semua local storage
         window.open(`${urlCentral}/logout`, 'blank');
         // window.location.href = `${urlCentral}/logout`;
     }
@@ -61,7 +62,7 @@ function Navbar() {
                             </li>
                         </ul>
                     </div>
-                    <div className="d-flex flex-row gap-2 align-items-center text-light" onClick={() => logout()}>
+                    <div className={`d-flex flex-row gap-2 align-items-center text-light ${location.pathname == ('/') ? fontColor : 'text-dark'}`} onClick={() => logout()} style={{ cursor:'pointer' }}>
                         <p className="mb-0 fw-semibold">Logout</p>
                         <FontAwesomeIcon icon={faRightFromBracket} />
                     </div>

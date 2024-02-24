@@ -8,6 +8,7 @@ function Layout() {
 
     useEffect(() => {
         if (!Cookies.get("token") || !Cookies.get("email")) {
+            localStorage.clear();
             window.location.href = `${urlCentral}/logout`;
         }
     }, [])

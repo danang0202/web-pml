@@ -47,8 +47,8 @@ export function konversiFormatWaktu(waktuISO) {
 
     // Daftar nama bulan
     const namaBulan = [
-        "Januari", "Februari", "Maret", "April", "Mei", "Juni",
-        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+        "Jan", "Feb", "Mar", "Apr", "Mei", "Juni",
+        "Juli", "Agt", "Sept", "Okt", "Nov", "Des"
     ];
 
     // Dapatkan tanggal, bulan, tahun, jam, menit, dan detik
@@ -66,7 +66,7 @@ export function konversiFormatWaktu(waktuISO) {
 }
 
 export function getNamaPengirim(submitterId, dataTim) {
-    const hasil = dataTim.find((item) => item.akunId == 151); // BAGIAIN INI NANTI DI BENARKAN KONDISINYA
+    const hasil = dataTim.find((item) => item.akunId == submitterId); // BAGIAIN INI NANTI DI BENARKAN KONDISINYA
     if (hasil) {
         return hasil;
     } else {

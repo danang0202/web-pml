@@ -2,19 +2,19 @@ import { useTimContext } from '../../context/TimContext';
 import Cookies from 'js-cookie';
 import { getNamaPengirim, konversiFormatWaktu, updateStatusSubmisionMetaData } from '../config/kumpulanFunction';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleRight, faCaretDown, faCheck, faClipboardCheck, faEject, faEye, faFilePen, faPenToSquare, faSquareXmark, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleRight, faArrowsRotate, faCaretDown, faCheck, faClipboardCheck, faEject, faEye, faFilePen, faPenToSquare, faRotateRight, faSquareXmark, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import apiCentralProject from '../config/axiosCentralProject';
-import { xmlFormId } from "../config/util";
-function TableRecent({ setLoading }) {
-    const token = Cookies.get('token');
-    const { submissionListTim, dataTim, setGetSubmission, updateDataSubmissions, submissionsList } = useTimContext();
-    const [statusTemp, setStatusTemp] = useState('');
+import { urlEditCentral, xmlFormId } from '../config/util';
 
+
+const Table = ({ data, dataTim, loading, setLoading }) => {
+    const token = Cookies.get('token');
+    const [statusTemp, setStatusTemp] = useState('');
+    const { setGetSubmission, updateDataSubmissions, submissionsList } = useTimContext();
     const handleLinkClick = (item) => {
         event.preventDefault();
-        // let url = (`https://central.pkl63.stis.ac.id/-/edit/OGnOJdHta8UsUQ3JTo10xPCq9f3BhYr?instance_id=${item.instanceId}&return_url=`);
-        let url = (`https://central.pkl63.stis.ac.id/v1/projects/1/forms/MODUL2/submissions/${item.instanceId}/edit`);
+        let url = (`${urlEditCentral}forms/${xmlFormId}/submissions/${item.instanceId}/edit`);
         window.open(url, '_blank');
     }
 
@@ -27,19 +27,18 @@ function TableRecent({ setLoading }) {
         setStatusTemp(status);
     }
 
-
     const editReviewStateAction = async (item) => {
         setLoading(true);
         try {
             const data = {
                 "reviewState": statusTemp
             }
-            const response = await apiCentralProject.patch(`forms/${xmlFormId}/submissions/` + item.instanceId, data, {
+            const response = await apiCentralProject.patch((`forms/${xmlFormId}/submissions/` + item.instanceId, data, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     "Content-Type": "application/json",
                 }
-            })
+            }))
             if (response.status == 200) {
                 updateDataSubmissions(updateStatusSubmisionMetaData(submissionsList, response.data), false);
             }
@@ -55,20 +54,20 @@ function TableRecent({ setLoading }) {
 
     return (
         <>
-            <table className="table table-hover text-center table-recent">
+            <table className="table table-hover text-center">
                 <thead>
-                    <tr>
-                        <th scope="col" >Waktu Pengumpulan</th>
-                        <th scope="col" >NIM Pengirim</th>
-                        <th scope="col" >Nama Pengirim</th>
+                    <tr className='bg-blue'>
+                        <th scope="col">Timestamp</th>
+                        <th scope="col">NIM</th>
+                        <th scope="col">Submitter</th>
                         <th scope="col" >Label Rumah Tangga</th>
                         <th scope="col" >Status</th>
-                        <th scope="col" colSpan={2}>Aksi</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {submissionListTim.length > 0 &&
-                        submissionListTim.slice(0, 10).map((item, index) => (
+                    {data && data.length > 0 &&
+                        data.map((item, index) => (
                             <tr key={index}>
                                 <td scope="row">{konversiFormatWaktu(item.createdAt)}</td>
                                 <td>{getNamaPengirim(item.submitterId, dataTim).nim}</td>
@@ -158,4 +157,4 @@ function TableRecent({ setLoading }) {
     )
 }
 
-export default TableRecent
+export default Table

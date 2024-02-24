@@ -7,6 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { TimProvider } from './context/TimContext'
 import Team from './assets/screens/Team'
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import Submissions from './assets/screens/Submissions'
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
             <Route path='/login/:ref/:tag/:expiresAt' element={<Login />} />
             <Route path="/" element={<Layout />}>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/submissions" element={<Team />} />
+              <Route path="/submissions" element={<Submissions />} />
               <Route path="/team" element={<Team />} />
             </Route>
           </Routes>
