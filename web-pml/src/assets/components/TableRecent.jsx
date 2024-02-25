@@ -73,13 +73,13 @@ function TableRecent({ setLoading }) {
                                 <td scope="row">{konversiFormatWaktu(item.createdAt)}</td>
                                 <td>{getNamaPengirim(item.submitterId, dataTim).nim}</td>
                                 <td className=''>{getNamaPengirim(item.submitterId, dataTim).nama}</td>
-                                <td>{item.currentVersion.instanceNmae}</td>
+                                <td>{item.currentVersion.instanceName}</td>
                                 <td>
                                     <div className="dropdown">
                                         <div className="d-flex flex-row justify-content-center">
                                             <div className={`px-2 py-1 rounded text-light fw-semibold fs-7 ${item.reviewState == 'approved' ? 'bg-green' : item.reviewState == 'rejected' ? 'bg-danger' : item.reviewState == null ? 'bg-blue' : 'bg-orange'}`} data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} onClick={() => onClickEditStatusButton(item)}>{item.reviewState == 'approved' ? 'Approved' : item.reviewState == 'rejected' ? 'Ditolak' : item.reviewState == null ? 'Diterima' : item.reviewState == 'edited' ? 'Diubah' : 'Bermasalah'} <FontAwesomeIcon icon={faCaretDown} style={{ color: '#fff' }} /></div>
                                             <div className="dropdown-menu px-2 border-0 shadow">
-                                                <p className="mb-0 font-semibold text-center">{item.currentVersion.instanceNmae}</p>
+                                                <p className="mb-0 font-semibold text-center">{item.currentVersion.instanceName}</p>
                                                 <div className="w-100">
                                                     <div className={`btn my-2 fs-7 d-flex flex-row align-items-center gap-2 fw-semibold ${statusTemp == 'approved' ? 'bg-green text-light' : 'bg-green-t text-success'} w-100 px-3 py-1 rounded`} onClick={(e) => onClickStatus(e, "approved")}>
                                                         <FontAwesomeIcon icon={faClipboardCheck} />
