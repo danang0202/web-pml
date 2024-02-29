@@ -67,8 +67,8 @@
 }
 
 .bg-grad-3:hover {
-  opacity: .8;
-  background-image: linear-gradient(to right, #f58020 25%, #fbac1b 80%);
+    opacity: .8;
+    background-image: linear-gradient(to right, #f58020 25%, #fbac1b 80%);
   cursor: pointer;
 }
 
@@ -97,8 +97,16 @@
   color: #888;
 }
 
+.card-container {
+  padding-bottom: 5rem;
+}
+
 .card-box {
-  transform: translateY(140%);
+  transform: translateY(40%);
+}
+
+.maskot {
+  width: 10rem;
 }
 
 .border-blue {
@@ -107,4 +115,74 @@
 
 .active {
   font-weight: bolder;
+}
+
+.fs-btn {
+  font-size: 1rem;
+}
+
+.fs-tbl {
+  font-size: 1rem;
+}
+
+.status-column {
+  min-width: 7rem;
+}
+
+.table-container{
+  overflow-x: scroll;
+}
+
+.table-submission-container{
+  min-width: 75%;
+}
+
+
+/* Tab  */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .card-container {
+    padding-bottom: 2rem;
+  }
+
+  .fs-btn {
+    font-size: .8rem;
+  }
+
+  .maskot {
+    width: 8rem;
+  }
+
+  .fs-tbl {
+    font-size: 0.8rem;
+  }
+
+  .status-column {
+    min-width: 8rem;
+  }
+  
+  .table-submission-container{
+    width: 100%;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .card-container {
+    padding-bottom: 10rem;
+  }
+
+  .maskot {
+    width: 7rem;
+  }
+
+  .fs-btn {
+    font-size: .7rem;
+  }
+
+  .fs-tbl {
+    font-size: 0.7rem;
+  }
+
+  .card-box {
+    transform: translateY(20%);
+  }
 }

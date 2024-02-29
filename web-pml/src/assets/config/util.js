@@ -1,11 +1,11 @@
-export const urlCentral = "https://central.pkl63.stis.ac.id/#";
+// export const urlCentral = "https://central.pkl63.stis.ac.id/#";
 export const urlEditCentral = "https://central.pkl63.stis.ac.id/v1/projects/1/";
 
-// export const urlCentral = "http://localhost:8989/#";
+export const urlCentral = "http://localhost:8989/#";
 
 export const xmlFormId = "Pencacahan";
 
-import _, { update } from 'lodash';
+import _, { filter, update } from 'lodash';
 
 export const paginationUtils = (totalPage, page, limit, siblings) => {
     let totalPgeNoInArray = 7 + siblings;
@@ -50,10 +50,10 @@ export function getEndIndexData(page, limit, lengthData) {
     return akhir <= lengthData ? akhir : lengthData;
 }
 
-export function getNameAllNameFilter(dataTim) {
+export function getAllSubmitterId(dataTim) {
     let array = [];
     dataTim.map((item) => {
-        array.push(item.nama);
+        array.push(item.akunId);
     })
     return array;
 }
@@ -82,7 +82,7 @@ export function addFilterName(namaAnggota, filterList) {
     return updatedFilterList;
 }
 
-export function filterData(data, status, sorting, name, wilayah, keyword) {
+export function filterData(data, status, sorting, name, wilayah, keyword, wilayahKerja) {
     let dataFilter = [];
     if (status && status.length > 0) {
         dataFilter = data.filter(item => {
@@ -92,19 +92,32 @@ export function filterData(data, status, sorting, name, wilayah, keyword) {
             return status.includes(item.reviewState);
         });
     }
+
+    if (name && name.length > 0) {
+        dataFilter = dataFilter.filter(item => {
+            return name.includes(item.submitterId);
+        })
+    }
+
+    if (keyword != '') {
+        dataFilter = dataFilter.filter(item => {
+            const itemString = String(item.currentVersion.instanceName).toLowerCase();
+            return itemString.includes(keyword);
+        })
+    }
+
+    if (wilayah != '' && wilayah.length != wilayahKerja.length) {
+        dataFilter = dataFilter.filter(item => {
+            const noBsData = item.currentVersion.instanceName.split('.');
+            return wilayah.includes(noBsData);
+        })
+    }
+
     if (sorting == 'desc') {
         dataFilter.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     } else {
         dataFilter.sort((b, a) => new Date(b.createdAt) - new Date(a.createdAt));
     }
-
-    if (keyword != '') {
-        dataFilter = dataFilter.filter(item => {
-            const itemString = String(item.reviewState).toLowerCase();
-            return itemString.includes(keyword);
-        })
-    }
-    console.log(dataFilter);
     return dataFilter;
 }
 

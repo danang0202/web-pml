@@ -10,7 +10,15 @@
 
 * {
     font-family: 'Inter', sans-serif;
-    font-size: 99.5%;
+    /* font-size: 99.5%; */
+}
+
+::-webkit-scrollbar {
+    height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888; 
 }
 
 .no-border {
@@ -95,11 +103,11 @@
     color: #1AC073 !important;
 }
 
-.bg-orange-red-t{
+.bg-orange-red-t {
     background: rgba(236, 43, 38, .15);
 }
 
-.text-orange-red{
+.text-orange-red {
     color: #d93f57;
 }
 
@@ -109,6 +117,22 @@
 
 .fs-8 {
     font-size: .8rem !important;
+}
+
+.h-b {
+    transition: all 0.3s ease;
+}
+
+.h-w-0 {
+    transition: all 0.3s ease !important;
+}
+
+.h-b:hover {
+    font-weight: bold;
+}
+
+.h-w-o:hover {
+    color: #f5b020 !important;
 }
 
 @keyframes fadeIn {
@@ -144,21 +168,21 @@
     color: #fff !important;
 }
 
-.hover-op1:hover i{
-    color:  #fff !important;
+.hover-op1:hover i {
+    color: #fff !important;
 }
 
 .hover-blue:hover {
     color: #00A3E1 !important;
 }
 
-.hover-bg-blue:hover{
+.hover-bg-blue:hover {
     background: #00A3E1 !important;
     color: #fff !important;
     cursor: pointer;
 }
 
-.hover-bg-danger:hover{
+.hover-bg-danger:hover {
     background: rgba(242, 5, 5) !important;
     color: #fff !important;
     cursor: pointer;
@@ -217,15 +241,19 @@
     background: #00A3E1 !important;
 }
 
-.form-check-input:checked{
+.form-check-input:checked {
     background-color: #f5b020 !important;
     border-color: #f5b020 !important;
 }
 
-table tbody tr td{
+table tbody tr td {
     padding: .7rem 0rem !important;
 }
 
-input{
+input {
+    cursor: pointer;
+}
+
+label{
     cursor: pointer;
 }

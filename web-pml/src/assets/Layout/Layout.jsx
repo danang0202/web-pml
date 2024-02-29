@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import { useEffect } from 'react'
 import Cookies from 'js-cookie'
 import { urlCentral } from '../config/util'
+import Footer from '../components/Footer'
 
 function Layout() {
 
@@ -16,12 +17,11 @@ function Layout() {
 
     return (
         <>
-            <div className="position-fixed top-0 w-100" style={{ height: '4rem', zIndex: '10' }}>
-                <Navbar />
-            </div>
-            <div className="box w-100 p-0" style={{ marginTop: '4rem' }}>
+            <Navbar />
+            <div className="box w-100 p-0">
                 <Outlet />
             </div>
+            <Footer />
         </>
     )
 }

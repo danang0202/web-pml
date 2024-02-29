@@ -14,7 +14,7 @@ export function formatDateAndTime(timestamp) {
     const detik = ('0' + dateObj.getSeconds()).slice(-2);
 
 
-    return `${hari}, ${day} ${month} ${year} pukul ${hours}:${minutes}:${detik} WIB`;
+    return `${hari}, ${day} ${month} ${year} pukul ${hours}:${minutes}:${detik} WITA`;
 }
 
 export function countTotalSubmissions(data) {
