@@ -67,8 +67,8 @@
 }
 
 .bg-grad-3:hover {
-    opacity: .8;
-    background-image: linear-gradient(to right, #f58020 25%, #fbac1b 80%);
+  opacity: .8;
+  background-image: linear-gradient(to right, #f58020 25%, #fbac1b 80%);
   cursor: pointer;
 }
 
@@ -129,11 +129,11 @@
   min-width: 7rem;
 }
 
-.table-container{
+.table-container {
   overflow-x: scroll;
 }
 
-.table-submission-container{
+.table-submission-container {
   min-width: 75%;
 }
 
@@ -159,8 +159,8 @@
   .status-column {
     min-width: 8rem;
   }
-  
-  .table-submission-container{
+
+  .table-submission-container {
     width: 100%;
   }
 }

@@ -39,7 +39,7 @@ function Navbar() {
         localStorage.clear(); // menghapus semua local storage
         window.open(`${urlCentral}/logout`, 'blank');
     }
-    
+
 
     return (
         <>
@@ -50,8 +50,8 @@ function Navbar() {
                             <img src="/images/logo/Logo Full.svg" alt="" style={{ width: '3.5rem' }} />
                         </div>
                         <div className="text px-2">
-                            <p className={` fw-bold mb-0 ${fontColor}`} >PKL POLSTAT STIS</p>
-                            <p className={` fw-bold mb-0 ${fontColor} fs-7`}>T.A. 20323 / 2024</p>
+                            <p className={` fw-bold mb-0 ${location.pathname == ('/') ? fontColor : 'text-dark'}`} >PKL POLSTAT STIS</p>
+                            <p className={` fw-bold mb-0 ${location.pathname == ('/') ? fontColor : 'text-dark'} fs-7`}>T.A. 20323 / 2024</p>
                         </div>
 
                     </div>
