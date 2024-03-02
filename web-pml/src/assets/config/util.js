@@ -122,4 +122,28 @@ export function filterData(data, status, sorting, name, wilayah, keyword, wilaya
 }
 
 
+export function countAllDataUser(data, user) {
+    console.log(data);
+    const approvedSubmissions = data.filter(item => item.submitterId == user.akunId);
+    return approvedSubmissions.length;
+}
 
+export function countAllDataUserApproved(data, user) {
+    console.log(data);
+    const approvedSubmissions = data.filter(item => item.submitterId == user.akunId && item.reviewState == "approved");
+    return approvedSubmissions.length;
+}
+
+export function formatTwoDigitString(input) {
+    // Mengonversi input menjadi integer
+    const num = parseInt(input);
+
+    // Memeriksa apakah input kurang dari 10
+    if (num < 10) {
+        // Jika kurang dari 10, tambahkan '0' di depan input
+        return '0' + num.toString();
+    } else {
+        // Jika tidak kurang dari 10, gunakan input asli
+        return input.toString();
+    }
+}

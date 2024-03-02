@@ -137,6 +137,14 @@
   min-width: 75%;
 }
 
+.icon-data-missing img{
+  width: 15rem;
+}
+
+.avatar{
+  width: 10rem;
+}
+
 
 /* Tab  */
 @media (min-width: 768px) and (max-width: 1024px) {

@@ -105,7 +105,7 @@ const Submissions = () => {
                                 <div className="d-flex flex-row justify-content-betweeN align-items-center justify-content-between">
                                     <div className="d-flex flex-md-row flex-column gap-lg-5 gap-md-4 gap-2">
                                         <p className="mb-0 d-none d-lg-inline"><span className="text-success fw-semibold">Last update</span> : {formatDateAndTime(localStorage.getItem('lastUpdate'))}</p>
-                                        <p className="mb-0 fs-7 d-inline d-lg-none text-center"><span className="text-success fw-semibold fs-7 d-none d-md-inline">Last update :</span> {formatDateAndTime(localStorage.getItem('lastUpdate'))}</p>
+                                        <p className="mb-0 fs-7 d-inline d-lg-none text-center"><span className="text-success fw-semibold fs-7 d-none d-md-inline ">Last update :</span> {formatDateAndTime(localStorage.getItem('lastUpdate'))}</p>
                                     </div>
                                     <div className="d-flex flex-row gap-lg-2 gap-1">
                                         <div className="rounded bg-grad-3 text-light d-block px-lg-3 py-lg-2 px-2 py-2 hover-grad-1 transition-colors d-flex flex-row gap-2 align-items-center" onClick={() => setGetSubmission(true)}>

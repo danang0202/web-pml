@@ -17,11 +17,17 @@ function Layout() {
 
     return (
         <>
-            <Navbar />
-            <div className="box w-100 p-0">
-                <Outlet />
+            <div className="d-flex flex-column justify-content-between" style={{ minHeight: '100vh' }}>
+                <div className="">
+                    <Navbar />
+                    <div className="box w-100 p-0">
+                        <Outlet />
+                    </div>
+                </div>
+                <div className="">
+                    <Footer />
+                </div>
             </div>
-            <Footer />
         </>
     )
 }

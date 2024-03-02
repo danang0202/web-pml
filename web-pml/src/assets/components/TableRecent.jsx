@@ -54,29 +54,29 @@ function TableRecent({ setLoading }) {
 
     return (
         <>
-            <table className="table table-hover text-center table-recent">
-                <thead>
-                    <tr>
-                        <th scope="col" className='fs-tbl' >Timestamp</th>
-                        <th scope="col" className='d-none d-lg-block' >NIM Pengirim</th>
-                        <th scope="col" className='fs-tbl' >Submitter</th>
-                        <th scope="col" className='fs-tbl' >Label Rumah Tangga</th>
-                        <th scope="col" className='fs-tbl' >Status</th>
-                        <th scope="col" className='fs-tbl' colSpan={2}>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {submissionListTim.length > 0 &&
-                        submissionListTim.slice(0, 10).map((item, index) => (
+            {submissionListTim.length > 0 ? (
+                <table className="table table-hover text-center table-recent">
+                    <thead>
+                        <tr>
+                            <th scope="col" className='fs-tbl' >Timestamp</th>
+                            <th scope="col" className='d-none d-lg-block' >NIM Pengirim</th>
+                            <th scope="col" className='fs-tbl' >Submitter</th>
+                            <th scope="col" className='fs-tbl' >Label Rumah Tangga</th>
+                            <th scope="col" className='fs-tbl' >Status</th>
+                            <th scope="col" className='fs-tbl' colSpan={2}>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {submissionListTim.slice(0, 10).map((item, index) => (
                             <tr key={index}>
                                 <td scope="row" className='fs-tbl pe-1'>{konversiFormatWaktu(item.createdAt)}</td>
                                 <td className='d-none d-lg-block px-1'>{getNamaPengirim(item.submitterId, dataTim).nim}</td>
                                 <td className='fs-tbl px-1'>{getNamaPengirim(item.submitterId, dataTim).nama}</td>
                                 <td className='fs-tbl px-1'>{item.currentVersion.instanceName}</td>
-                                <td className='\status-column px-1'>
+                                <td className='status-column px-1'>
                                     <div className="dropdown">
-                                        <div className="d-flex hover-op6 flex-row justify-content-center">
-                                            <div className={`px-2 py-1 rounded text-light fw-semibold fs-7 ${item.reviewState == 'approved' ? 'bg-green' : item.reviewState == 'rejected' ? 'bg-danger' : item.reviewState == null ? 'bg-blue' : 'bg-orange'}`} data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} onClick={() => onClickEditStatusButton(item)}>{item.reviewState == 'approved' ? 'Approved' : item.reviewState == 'rejected' ? 'Ditolak' : item.reviewState == null ? 'Diterima' : item.reviewState == 'edited' ? 'Diubah' : 'Bermasalah'} <FontAwesomeIcon icon={faCaretDown} style={{ color: '#fff' }} /></div>
+                                        <div className="d-flex flex-row justify-content-center">
+                                            <div className={`px-2 hover-op6 py-1 rounded text-light fw-semibold fs-7 ${item.reviewState == 'approved' ? 'bg-green' : item.reviewState == 'rejected' ? 'bg-danger' : item.reviewState == null ? 'bg-blue' : 'bg-orange'}`} data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} onClick={() => onClickEditStatusButton(item)}>{item.reviewState == 'approved' ? 'Approved' : item.reviewState == 'rejected' ? 'Ditolak' : item.reviewState == null ? 'Diterima' : item.reviewState == 'edited' ? 'Diubah' : 'Bermasalah'} <FontAwesomeIcon icon={faCaretDown} style={{ color: '#fff' }} /></div>
                                             <div className="dropdown-menu px-2 border-0 shadow">
                                                 <p className="mb-0 font-semibold text-center fs-tbl">{item.currentVersion.instanceName}</p>
                                                 <div className="w-100">
@@ -114,10 +114,17 @@ function TableRecent({ setLoading }) {
                                     </div>
                                 </td>
                             </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
+                        ))}
+                    </tbody>
+                </table>
+            ):(
+            <div className="d-flex flex-row justify-content-center align-items-center ">
+                <div className="icon-data-missing d-flex flex-column gap-2 align-items-center">
+                    <img src="/images/icon/missing-doc.png" alt="Data Tidak ditemukan" />
+                    <h6 className='fw-bold text-secondary'>Data tidak ditemukan</h6>
+                </div>
+            </div>
+            )}
         </>
     )
 }
