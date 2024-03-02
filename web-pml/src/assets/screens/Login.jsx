@@ -72,6 +72,7 @@ function Login() {
                         'Content-Type': 'application/json'
                     }
                 })
+                console.log(response);
                 setTim(response.data);
             } catch (error) {
                 console.log("Terdapat error di halaman dashboard");
@@ -107,6 +108,7 @@ function Login() {
                         'Authorization': `Bearer ${token}`
                     }
                 })
+                console.log(response);
                 if (response.status == 200) {
                     mergeTimAndAkun(response.data);
                 }
