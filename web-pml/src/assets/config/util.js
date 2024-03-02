@@ -1,9 +1,9 @@
 export const urlCentral = "https://central.pkl63.stis.ac.id/#";
-export const urlEditCentral = "https://central.pkl63.stis.ac.id/v1/projects/1/";
+export const urlEditCentral = "https://central.pkl63.stis.ac.id/v1/projects/6/";
 
 // export const urlCentral = "http://localhost:8989/#";
 
-export const xmlFormId = "Pencacahan";
+export const xmlFormId = "VRTGENZ.PKLD4-63";
 
 import _, { filter, update } from 'lodash';
 
