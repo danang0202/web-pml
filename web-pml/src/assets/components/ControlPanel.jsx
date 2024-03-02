@@ -159,7 +159,7 @@ const ControlPanel = ({ filterStatus, setFilterStatus, filterName, setFilterName
                                     {wilayahKerja && wilayahKerja.length > 0 && wilayahKerja.map((item, index) => (
                                         <>
                                             <div key={index} className="w-auto px-5 py-2 form-check form-switch">
-                                                <input className="form-check-input" type="checkbox" role="switch" id={item.no_bs} checked={isNameInArrayFilter(item.no_bs, filterWilayah)} onClick={() => changeFilterWilayah(item)} />
+                                                <input className="form-check-input" type="checkbox" role="switch" id={item.id_bs} checked={isNameInArrayFilter(item.id_bs, filterWilayah)} onClick={() => changeFilterWilayah(item)} />
                                                 <label className="fs-tbl form-check-label" htmlFor={item.no_bs}>{item.nama_kel} {item.no_bs}</label>
                                             </div>
                                         </>
