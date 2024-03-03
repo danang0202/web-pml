@@ -142,7 +142,7 @@ const Submissions = () => {
                             </div>
                         </div>
                         <div className="px-3 pt-1 w-100">
-                            <div className="table-container">
+                            <div className="table-container table-sub-container">
                                 <Table data={paginatedData} dataTim={dataTim} loading={loading} setLoading={setLoading} />
                             </div>
                         </div>

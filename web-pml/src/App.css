@@ -145,6 +145,14 @@
   width: 10rem;
 }
 
+.table-container-recent{
+  min-height: 25rem;
+}
+
+.table-sub-container{
+  min-height: 25rem;
+}
+
 
 /* Tab  */
 @media (min-width: 768px) and (max-width: 1024px) {

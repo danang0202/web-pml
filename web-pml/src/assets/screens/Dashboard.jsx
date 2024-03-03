@@ -88,7 +88,7 @@ function Dashboard() {
                 </div>
 
                 <div className="container table-container px-lg-5 px-md-0 px-3">
-                    <div className="bg-clear rounded-3 p-lg-4 p-3 table-container">
+                    <div className="bg-clear rounded-3 p-lg-4 p-3 table-container table-container-recent">
                         <TableRecent setLoading={setLoading} />
                     </div>
                 </div>

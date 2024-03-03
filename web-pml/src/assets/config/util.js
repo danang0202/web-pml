@@ -107,11 +107,12 @@ export function filterData(data, status, sorting, name, wilayah, keyword, wilaya
         })
     }
 
-    if (wilayah != '' && wilayah.length != wilayahKerja.length) {
+    if (wilayah.length != wilayahKerja.length) {
         dataFilter = dataFilter.filter(item => {
             const noBsData = item.currentVersion.instanceName.toLowerCase();
-            return noBsData.startsWith(wilayah.toLowerCase());
-        })
+            const wilayahLowerCase = wilayah.map(wilayahItem => wilayahItem.replace(/ /g, '_').toLowerCase());
+            return wilayahLowerCase.some(wilayahItem => noBsData.startsWith(wilayahItem));
+        });
     }
 
     if (sorting == 'desc') {
