@@ -61,7 +61,8 @@ export function getAllSubmitterId(dataTim) {
 export function getNameAllNoBS(wilayah) {
     let array = [];
     wilayah.map((item) => {
-        array.push(item.no_bs);
+        let string = `${item.nama_kel}.${item.no_bs}`
+        array.push(string);
     })
     return array;
 }
@@ -108,8 +109,8 @@ export function filterData(data, status, sorting, name, wilayah, keyword, wilaya
 
     if (wilayah != '' && wilayah.length != wilayahKerja.length) {
         dataFilter = dataFilter.filter(item => {
-            const noBsData = item.currentVersion.instanceName.split('.');
-            return wilayah.includes(noBsData);
+            const noBsData = item.currentVersion.instanceName.toLowerCase();
+            return noBsData.startsWith(wilayah.toLowerCase());
         })
     }
 

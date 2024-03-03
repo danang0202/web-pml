@@ -7,7 +7,6 @@ import { addFilterName, getAllSubmitterId, getNameAllNoBS, isNameInArrayFilter, 
 import { filter } from 'lodash';
 const ControlPanel = ({ filterStatus, setFilterStatus, filterName, setFilterName, filterSorting, setFilterSorting, filterWilayah, setFilterWilayah }) => {
     const { dataTim, wilayahKerja } = useTimContext();
-    console.log(wilayahKerja);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [showControlPanel, setShowControlPanel] = useState(false);
 
@@ -35,10 +34,10 @@ const ControlPanel = ({ filterStatus, setFilterStatus, filterName, setFilterName
     }
 
     const changeFilterWilayah = (item) => {
-        if (isNameInArrayFilter(item.no_bs, filterWilayah)) {
-            setFilterWilayah(removefiltername(item.no_bs, filterWilayah))
+        if (isNameInArrayFilter(`${item.nama_kel}.${item.no_bs}`, filterWilayah)) {
+            setFilterWilayah(removefiltername(`${item.nama_kel}.${item.no_bs}`, filterWilayah))
         } else {
-            setFilterWilayah(addFilterName(item.no_bs, filterWilayah));
+            setFilterWilayah(addFilterName(`${item.nama_kel}.${item.no_bs}`, filterWilayah));
         }
     }
 
@@ -159,8 +158,8 @@ const ControlPanel = ({ filterStatus, setFilterStatus, filterName, setFilterName
                                     {wilayahKerja && wilayahKerja.length > 0 && wilayahKerja.map((item, index) => (
                                         <>
                                             <div key={index} className="w-auto px-5 py-2 form-check form-switch">
-                                                <input className="form-check-input" type="checkbox" role="switch" id={item.id_bs} checked={isNameInArrayFilter(item.id_bs, filterWilayah)} onClick={() => changeFilterWilayah(item)} />
-                                                <label className="fs-tbl form-check-label" htmlFor={item.no_bs}>{item.nama_kel} {item.no_bs}</label>
+                                                <input className="form-check-input" type="checkbox" role="switch" id={`${item.nama_kel}.${item.no_bs}`} checked={isNameInArrayFilter(`${item.nama_kel}.${item.no_bs}`, filterWilayah)} onClick={() => changeFilterWilayah(item)} />
+                                                <label className="fs-tbl form-check-label" htmlFor={`${item.nama_kel}.${item.no_bs}`}>{item.nama_kel} {item.no_bs}</label>
                                             </div>
                                         </>
                                     ))}
