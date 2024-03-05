@@ -41,6 +41,11 @@ export function countEditedSubmissions(data) {
     return approvedSubmissions.length;
 }
 
+export function countBermasalahSubmissions(data) {
+    const issuesSubmission = data.filter(item => item.reviewState == 'hasIssues');
+    return issuesSubmission.length;
+}
+
 export function konversiFormatWaktu(waktuISO) {
     // Buat objek Date dari string ISO
     const waktu = new Date(waktuISO);

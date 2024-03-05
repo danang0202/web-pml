@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClipboardCheck, faFileArchive, faFilePen, faFolderOpen, faSquareXmark, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { useTimContext } from '../../context/TimContext';
-import { countDiTerimaSubmissions, countDiTolakubmissions, countEditedSubmissions, countNoReviewSubmissions, countTotalSubmissions } from '../config/kumpulanFunction';
+import { countBermasalahSubmissions, countDiTerimaSubmissions, countDiTolakubmissions, countEditedSubmissions, countNoReviewSubmissions, countTotalSubmissions } from '../config/kumpulanFunction';
 import { useEffect, useState } from 'react';
 
 function Card() {
@@ -123,7 +123,7 @@ function Card() {
                                         <p className="mb-0 fw-semibold">Bermasalah</p>
                                     </div>
                                     <div className="count">
-                                        <h6 className="mb-0 badge bg-orange-t fs-5 rounded-3 text-orange">{submissionListTim && submissionListTim.length > 0 ? countDiTerimaSubmissions(submissionListTim) : 0}</h6>
+                                        <h6 className="mb-0 badge bg-orange-t fs-5 rounded-3 text-orange">{submissionListTim && submissionListTim.length > 0 ? countBermasalahSubmissions(submissionListTim) : 0}</h6>
                                     </div>
                                 </div>
                                 <div className="box d-flex flex-row bg-clear justify-content-between align-items-center gap-2 px-lg-4 py-lg-4 px-2 py-2 rounded-3 shadow">
