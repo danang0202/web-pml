@@ -10,6 +10,7 @@ import { faArrowRight, faArrowsRotate } from "@fortawesome/free-solid-svg-icons"
 import TableRecent from "../components/TableRecent";
 import Loading from "../components/Loading";
 import { xmlFormId } from "../config/util";
+import { useNavigate } from "react-router-dom";
 
 
 function Dashboard() {
@@ -17,6 +18,7 @@ function Dashboard() {
     const token = Cookies.get('token');
     const { updateDataSubmissions, getSubmissions, setGetSubmission } = useTimContext();
     const [loading, setLoading] = useState();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (sessionStorage.getItem('notif-login')) {
@@ -54,6 +56,11 @@ function Dashboard() {
         }
     }, [getSubmissions])
 
+
+    const goToSubmisions = () =>{
+        navigate('/submissions')
+    }
+
     return (
         <>
             {notifLogin && (
@@ -77,7 +84,7 @@ function Dashboard() {
                                 <p className="mb-0 fs-btn">Refresh <FontAwesomeIcon icon={faArrowsRotate} style={{ color: '#fff' }} /></p>
                             </div>
                             <div className="d-none d-md-inline">
-                                <div className="rounded bg-grad-1 text-light d-block px-lg-3 py-lg-2 px-2 py-2 hover-grad-1 transition-colors d-flex flex-row gap-2 align-items-center">
+                                <div className="rounded bg-grad-1 text-light d-block px-lg-3 py-lg-2 px-2 py-2 hover-grad-1 transition-colors d-flex flex-row gap-2 align-items-center" onClick={()=>goToSubmisions()}>
                                     <p className="mb-0 fs-btn">Selengkapnya <FontAwesomeIcon icon={faArrowRight} style={{ color: '#fff' }} /></p>
                                 </div>
                             </div>
